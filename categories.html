@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories — Kefayat Hyper Market</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/loader.css">
+    <style>
+        .cat-hero {
+            padding: 180px 0 80px;
+            background: linear-gradient(180deg, #fbfcfe, #eef1f6);
+            position: relative;
+            overflow: hidden;
+            text-align: center
+        }
+
+        .cat-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(40px, 6vw, 84px);
+            line-height: 1.02;
+            letter-spacing: -2px;
+            font-weight: 700;
+            margin: 16px 0
+        }
+
+        .cat-hero h1 em {
+            font-style: italic;
+            color: var(--accent-2)
+        }
+
+        .cat-hero p {
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 16px
+        }
+
+        .cat-showcase {
+            padding: 80px 0 60px
+        }
+
+        .cat-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px
+        }
+
+        .cat-block:nth-child(even) .cat-visual {
+            order: 2
+        }
+
+        .cat-block h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 3.5vw, 44px);
+            letter-spacing: -1px;
+            line-height: 1.15;
+            font-weight: 700;
+            margin: 14px 0 16px
+        }
+
+        .cat-block h2 em {
+            font-style: italic;
+            color: var(--accent-2)
+        }
+
+        .cat-block p {
+            color: var(--muted);
+            font-size: 15.5px;
+            margin-bottom: 24px;
+            max-width: 460px
+        }
+
+        .cat-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px
+        }
+
+        .cat-tag {
+            padding: 7px 14px;
+            border-radius: 99px;
+            background: var(--off);
+            border: 1px solid var(--line);
+            font-size: 12.5px;
+            font-weight: 600
+        }
+
+        .cat-visual {
+            position: relative;
+            aspect-ratio: 1/0.85;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: linear-gradient(160deg, #fff, #e9edf5);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, .8);
+        }
+
+        .cat-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .8s var(--ease)
+        }
+
+        .cat-visual:hover img {
+            transform: scale(1.05)
+        }
+
+        .cat-visual .float-chip {
+            position: absolute
+        }
+
+        @media (max-width:800px) {
+            .cat-block {
+                grid-template-columns: 1fr;
+                gap: 30px
+            }
+
+            .cat-block:nth-child(even) .cat-visual {
+                order: 0
+            }
+        }
+
+        .cat-mini-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 14px;
+            margin-top: 20px
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="preloader" class="preloader">
+        <div class="loader-shapes"><span class="shape s1"></span><span class="shape s2"></span><span
+                class="shape s3"></span></div>
+        <div class="loader-content">
+            <div class="loader-logo"><span class="logo-mark">K</span>
+                <div class="logo-text">
+                    <h1>KEFAYAT</h1>
+                    <p>HYPER MARKET</p>
+                </div>
+            </div>
+            <div class="loader-bar"><span id="loaderProgress"></span></div>
+            <div class="loader-percent"><span id="loaderPercent">0</span>%</div>
+            <div class="loader-tag">Premium Shopping Experience</div>
+        </div>
+    </div>
+
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand">
+                <div class="brand-mark">K</div>
+                <div class="brand-name"><strong>KEFAYAT</strong><span>HYPER MARKET</span></div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="categories.html" class="active">Categories</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="icon-btn" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="icon-btn" id="wishlistBtn"><i class="fa-regular fa-heart"></i><span class="badge"
+                        id="wishlistCount">0</span></button>
+                <button class="icon-btn" id="cartBtn"><i class="fa-solid fa-bag-shopping"></i><span class="badge"
+                        id="cartCount">0</span></button>
+                <button class="btn-login" id="loginBtn"><i class="fa-regular fa-user"></i><span>Login</span></button>
+                <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="cat-hero">
+        <div class="container">
+            <span class="eyebrow"><i class="fa-solid fa-layer-group"></i> Explore Categories</span>
+            <h1>Twelve <em>Worlds</em> of<br>Premium Products</h1>
+            <p>Each category curated with obsessive attention to quality, freshness and value.</p>
+        </div>
+    </section>
+
+    <section class="cat-showcase">
+        <div class="container" id="catBlocks"></div>
+    </section>
+
+    <section class="section" style="background:linear-gradient(180deg,#f7f8fb,#fff)">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Quick Browse</span>
+                <h2>All <em>Categories</em> At a Glance</h2>
+            </div>
+            <div class="cat-grid" id="allCats"></div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="brand">
+                        <div class="brand-mark">K</div>
+                        <div class="brand-name"><strong>KEFAYAT</strong><span>HYPER MARKET</span></div>
+                    </div>
+                    <p>Everything you need. One extraordinary destination.</p>
+                    <div class="socials"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i
+                                class="fa-brands fa-instagram"></i></a><a href="#"><i
+                                class="fa-brands fa-x-twitter"></i></a></div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4><a href="index.html">Home</a><a href="products.html">Products</a><a
+                        href="categories.html">Categories</a><a href="about.html">About</a><a
+                        href="contact.html">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4><a href="#">Help Center</a><a href="#">Track Order</a><a href="#">Returns</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fa-solid fa-envelope"></i> hello@kefayat.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Kefayat Hyper Market. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <aside class="drawer cart-drawer" id="cartDrawer">
+        <div class="drawer-head">
+            <h3>Your Cart</h3><button class="close" data-close><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="drawer-body" id="cartItems"></div>
+        <div class="drawer-foot">
+            <div class="cart-total"><span>Total</span><strong id="cartTotal">$0.00</strong></div><button
+                class="btn-primary w-full"><span>Checkout</span><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </aside>
+    <aside class="drawer wishlist-drawer" id="wishlistDrawer">
+        <div class="drawer-head">
+            <h3>Wishlist</h3><button class="close" data-close><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="drawer-body" id="wishlistItems"></div>
+    </aside>
+
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="globalSearch"
+                placeholder="Search..."><button class="close" data-close><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="search-results" id="searchResults"></div>
+    </div>
+
+    <div class="modal-wrap" id="authModal">
+        <div class="modal-card auth-card">
+            <button class="modal-close" data-close><i class="fa-solid fa-xmark"></i></button>
+            <div class="auth-tabs"><button class="tab active" data-tab="login">Login</button><button class="tab"
+                    data-tab="signup">Sign Up</button></div>
+            <form class="auth-form active" id="loginForm" novalidate>
+                <h3>Welcome Back</h3>
+                <p>Sign in to continue.</p>
+                <div class="field"><label>Email</label><input type="email" name="email" required><span
+                        class="err"></span></div>
+                <div class="field"><label>Password</label><input type="password" name="password" required
+                        minlength="6"><span class="err"></span></div>
+                <button class="btn-primary w-full"><span>Login</span><i class="fa-solid fa-arrow-right"></i></button>
+            </form>
+            <form class="auth-form" id="signupForm" novalidate>
+                <h3>Create Account</h3>
+                <p>Join 50,000+ members.</p>
+                <div class="field"><label>Full Name</label><input type="text" name="name" required minlength="2"><span
+                        class="err"></span></div>
+                <div class="field"><label>Email</label><input type="email" name="email" required><span
+                        class="err"></span></div>
+                <div class="field"><label>Password</label><input type="password" name="password" required
+                        minlength="6"><span class="err"></span></div>
+                <div class="field"><label>Confirm Password</label><input type="password" name="confirm" required
+                        minlength="6"><span class="err"></span></div>
+                <button class="btn-primary w-full"><span>Sign Up</span><i class="fa-solid fa-arrow-right"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-wrap" id="quickView">
+        <div class="modal-card quick-card"><button class="modal-close" data-close><i
+                    class="fa-solid fa-xmark"></i></button>
+            <div class="quick-inner" id="quickInner"></div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="./assets/java/loader.js"></script>
+    <script src="./assets/java/cursor.js"></script>
+    <script src="./assets/java/cart.js"></script>
+    <script src="./assets/java/auth.js"></script>
+    <script src="./assets/java/product.js"></script>
+    <script src="./assets/java/main.js"></script>
+    <script>
+        // ============================================
+        // CATEGORIES PAGE
+        // ============================================
+        (function () {
+            const blocks = document.getElementById('catBlocks');
+            const allCats = document.getElementById('allCats');
+            if (!blocks) return;
+
+            const categories = [
+                { name: 'Fruits & Vegetables', icon: 'fa-apple-whole', img: 'https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=900&q=80', desc: 'Farm-fresh fruits and vegetables picked at peak ripeness, delivered daily from local growers.', tags: ['Organic', 'Local Farm', 'Seasonal'] },
+                { name: 'Dairy Products', icon: 'fa-cheese', img: 'https://images.unsplash.com/photo-1628088062854-d1870b4553da?w=900&q=80', desc: 'Premium milk, cheese, yogurt and butter from grass-fed herds. Fresh, creamy and natural.', tags: ['Grass-fed', 'Fresh Daily', 'No Additives'] },
+                { name: 'Meat & Chicken', icon: 'fa-drumstick-bite', img: 'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=900&q=80', desc: 'Ethically sourced, hormone-free meat and poultry. Expertly butchered and vacuum-sealed.', tags: ['Free-Range', 'Halal', 'Aged'] },
+                { name: 'Bakery', icon: 'fa-bread-slice', img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=900&q=80', desc: 'Artisan breads, pastries and cakes baked fresh every morning by our in-house bakers.', tags: ['Baked Fresh', 'Sourdough', 'Artisan'] },
+                { name: 'Beverages', icon: 'fa-mug-hot', img: 'https://images.unsplash.com/photo-1544145945-f90425340c7e?w=900&q=80', desc: 'Coffee, tea, juices and sparkling waters from the world\'s finest producers.', tags: ['Cold Brew', 'Sparkling', 'Premium Tea'] },
+                { name: 'Snacks', icon: 'fa-cookie-bite', img: 'https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=900&q=80', desc: 'Chocolate, nuts, chips and crackers for every craving — curated for taste and quality.', tags: ['Dark Chocolate', 'Mixed Nuts', 'Gourmet'] },
+                { name: 'Groceries', icon: 'fa-wheat-awn', img: 'https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?w=900&q=80', desc: 'Pantry essentials — rice, oils, pasta, spices and everything your kitchen needs.', tags: ['Pantry', 'Olive Oil', 'Basmati'] },
+                { name: 'Household', icon: 'fa-spray-can-sparkles', img: 'https://images.unsplash.com/photo-1585421514738-01798e348b17?w=900&q=80', desc: 'Eco-friendly cleaning supplies, paper goods and home essentials you can trust.', tags: ['Eco-Friendly', 'Plant-Based', 'Bamboo'] },
+                { name: 'Electronics', icon: 'fa-headphones', img: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=900&q=80', desc: 'Audio, wearables and smart devices from leading brands at honest prices.', tags: ['Wireless', 'Smart', 'Premium Audio'] },
+                { name: 'Personal Care', icon: 'fa-spa', img: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=900&q=80', desc: 'Skincare, haircare and wellness products formulated with clean ingredients.', tags: ['Vitamin C', 'Argan Oil', 'Clean Beauty'] },
+                { name: 'Baby Products', icon: 'fa-baby', img: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=900&q=80', desc: 'Gentle, organic and pediatrician-approved care for your little ones.', tags: ['Organic', 'Fragrance-Free', 'Gentle'] },
+                { name: 'Stationery', icon: 'fa-pen-fancy', img: 'https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=900&q=80', desc: 'Notebooks, pens and creative supplies for students and professionals.', tags: ['Leather', 'Premium Paper', 'Handmade'] },
+            ];
+
+            blocks.innerHTML = categories.slice(0, 6).map((c, i) => `
+    <div class="cat-block ${i % 2 ? 'reverse' : ''}">
+      <div class="cat-text reveal">
+        <span class="eyebrow"><i class="fa-solid ${c.icon}"></i> Category</span>
+        <h2>${c.name.split(' & ').join(' & <em>')}${c.name.includes(' & ') ? '</em>' : ''}</h2>
+        <p>${c.desc}</p>
+        <div class="cat-tags">${c.tags.map(t => `<span class="cat-tag">${t}</span>`).join('')}</div>
+        <a href="products.html" class="btn-primary magnetic"><span>Shop ${c.name}</span><i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="cat-visual reveal">
+        <img src="${c.img}" alt="${c.name}" loading="lazy">
+        <div class="float-chip" style="top:20px;left:20px"><i class="fa-solid ${c.icon}"></i> ${c.name}</div>
+      </div>
+    </div>
+  `).join('');
+
+            allCats.innerHTML = categories.map(c => `
+    <a href="products.html" class="cat-card">
+      <div class="cat-icon"><i class="fa-solid ${c.icon}"></i></div>
+      <div class="cat-name">${c.name}</div>
+      <div class="cat-count">${(Math.random() * 400 + 80 | 0)}+ items</div>
+    </a>
+  `).join('');
+
+            if (window.gsap && window.ScrollTrigger) {
+                gsap.registerPlugin(ScrollTrigger);
+                gsap.utils.toArray('.reveal').forEach(el => {
+                    gsap.from(el, { y: 40, opacity: 0, duration: .9, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%' } });
+                });
+            }
+        })();
+    </script>
+</body>
+
+</html>

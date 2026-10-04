@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Kefayat Hyper Market — Everything You Need. One Extraordinary Destination." />
+    <title>Kefayat Hyper Market — Premium Shopping Destination</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- AOS for scroll reveal fallback -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/loader.css">
+</head>
+
+<body class="preload">
+
+    <!-- ============ PRELOADER ============ -->
+    <div id="preloader" class="preloader">
+        <div class="loader-shapes">
+            <span class="shape s1"></span>
+            <span class="shape s2"></span>
+            <span class="shape s3"></span>
+        </div>
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="logo-mark">K</span>
+                <div class="logo-text">
+                    <h1>KEFAYAT</h1>
+                    <p>HYPER MARKET</p>
+                </div>
+            </div>
+            <div class="loader-bar"><span id="loaderProgress"></span></div>
+            <div class="loader-percent"><span id="loaderPercent">0</span>%</div>
+            <div class="loader-tag">Premium Shopping Experience</div>
+        </div>
+    </div>
+
+    <!-- ============ CUSTOM CURSOR ============ -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- ============ NAVBAR ============ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand">
+                <div class="brand-mark">K</div>
+                <div class="brand-name">
+                    <strong>KEFAYAT</strong>
+                    <span>HYPER MARKET</span>
+                </div>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="icon-btn" id="searchBtn" aria-label="Search"><i
+                        class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist">
+                    <i class="fa-regular fa-heart"></i>
+                    <span class="badge" id="wishlistCount">0</span>
+                </button>
+                <button class="icon-btn" id="cartBtn" aria-label="Cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="badge" id="cartCount">0</span>
+                </button>
+                <button class="btn-login" id="loginBtn"><i class="fa-regular fa-user"></i><span>Login</span></button>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+        <canvas id="heroCanvas"></canvas>
+
+        <div class="hero-grain"></div>
+
+        <div class="hero-inner container">
+            <div class="hero-left">
+                <span class="eyebrow"><i class="fa-solid fa-star"></i> Premium Hypermarket</span>
+                <h1 class="hero-title">
+                    Everything You Need.<br>
+                    <em>One Extraordinary</em><br>
+                    Destination.
+                </h1>
+                <p class="hero-sub">
+                    Discover a curated universe of 10,000+ products across groceries, fresh produce, electronics and
+                    more — delivered to your doorstep with world-class care.
+                </p>
+                <div class="hero-cta">
+                    <a href="products.html" class="btn-primary magnetic">
+                        <span>Explore Products</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="categories.html" class="btn-ghost magnetic">
+                        <i class="fa-solid fa-play"></i>
+                        <span>Shop Now</span>
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3 data-count="10" data-suffix="K+">0</h3>
+                        <p>Products</p>
+                    </div>
+                    <div class="stat">
+                        <h3 data-count="50" data-suffix="K+">0</h3>
+                        <p>Happy Customers</p>
+                    </div>
+                    <div class="stat">
+                        <h3 data-count="24" data-suffix="/7">0</h3>
+                        <p>Shopping</p>
+                    </div>
+                    <div class="stat">
+                        <h3 data-count="100" data-suffix="%">0</h3>
+                        <p>Quality</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <!-- 3D Canvas -->
+                <div class="hero-3d-wrap">
+                    <canvas id="threeCanvas"></canvas>
+                    <div class="float-chip chip-1"><i class="fa-solid fa-leaf"></i> Fresh Daily</div>
+                    <div class="float-chip chip-2"><i class="fa-solid fa-truck-fast"></i> Free Delivery</div>
+                    <div class="float-chip chip-3"><i class="fa-solid fa-shield-halved"></i> 100% Quality</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-hint"><span></span>Scroll to explore</div>
+    </section>
+
+    <!-- ============ FEATURED PRODUCTS ============ -->
+    <section class="section featured" id="featured">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Curated Selection</span>
+                <h2>Featured <em>Products</em></h2>
+                <p>Handpicked premium essentials our customers love the most.</p>
+            </div>
+            <div class="product-grid" id="featuredGrid"></div>
+            <div class="center-cta">
+                <a href="products.html" class="btn-primary magnetic"><span>View All Products</span><i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CATEGORIES ============ -->
+    <section class="section categories-strip">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Browse by</span>
+                <h2>Popular <em>Categories</em></h2>
+            </div>
+            <div class="cat-grid" id="homeCategories"></div>
+        </div>
+    </section>
+
+    <!-- ============ SPECIAL OFFERS ============ -->
+    <section class="section offers">
+        <div class="container">
+            <div class="offers-inner reveal">
+                <div class="offers-text">
+                    <span class="eyebrow light">Limited Time</span>
+                    <h2>Special <em>Offers</em> of the Week</h2>
+                    <p>Save up to 40% on selected premium products. Fresh deals refreshed every single day.</p>
+                    <div class="countdown" id="countdown">
+                        <div><strong id="cdDays">00</strong><span>Days</span></div>
+                        <div><strong id="cdHours">00</strong><span>Hrs</span></div>
+                        <div><strong id="cdMins">00</strong><span>Min</span></div>
+                        <div><strong id="cdSecs">00</strong><span>Sec</span></div>
+                    </div>
+                    <a href="products.html" class="btn-light magnetic"><span>Shop Offers</span><i
+                            class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="offers-visual">
+                    <div class="offer-card">
+                        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&q=80"
+                            alt="Fresh produce" loading="lazy" />
+                        <div class="offer-badge">-40%</div>
+                    </div>
+                    <div class="offer-card small">
+                        <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?w=600&q=80" alt="Dairy"
+                            loading="lazy" />
+                        <div class="offer-badge">-25%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHY CHOOSE ============ -->
+    <section class="section why">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Why Choose Us</span>
+                <h2>Why <em>Kefayat</em></h2>
+                <p>Four pillars that make us the region's most trusted hypermarket.</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card reveal">
+                    <div class="why-icon"><i class="fa-solid fa-gem"></i></div>
+                    <h3>Premium Quality</h3>
+                    <p>Every product passes a rigorous 12-point quality check before reaching your basket.</p>
+                </div>
+                <div class="why-card reveal">
+                    <div class="why-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>Lightning Fast</h3>
+                    <p>Same-day delivery across the city. Fresh produce picked and packed within hours.</p>
+                </div>
+                <div class="why-card reveal">
+                    <div class="why-icon"><i class="fa-solid fa-tags"></i></div>
+                    <h3>Honest Pricing</h3>
+                    <p>Direct-from-farm sourcing means premium quality at prices that make sense.</p>
+                </div>
+                <div class="why-card reveal">
+                    <div class="why-icon"><i class="fa-solid fa-headset"></i></div>
+                    <h3>24/7 Support</h3>
+                    <p>Real humans, always available. Our team is here whenever you need us.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="section reviews">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Testimonials</span>
+                <h2>Loved by <em>Thousands</em></h2>
+            </div>
+            <div class="reviews-track" id="reviewsTrack">
+                <!-- JS injected -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ NEWSLETTER ============ -->
+    <section class="section newsletter">
+        <div class="container">
+            <div class="news-inner reveal">
+                <div class="news-text">
+                    <span class="eyebrow">Stay Updated</span>
+                    <h2>Get exclusive <em>offers</em> in your inbox</h2>
+                    <p>Join 25,000+ subscribers and never miss a fresh deal.</p>
+                </div>
+                <form class="news-form" id="newsForm" novalidate>
+                    <input type="email" id="newsEmail" placeholder="your@email.com" required>
+                    <button type="submit" class="btn-primary magnetic"><span>Subscribe</span><i
+                            class="fa-solid fa-paper-plane"></i></button>
+                    <div class="form-msg" id="newsMsg"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="brand">
+                        <div class="brand-mark">K</div>
+                        <div class="brand-name"><strong>KEFAYAT</strong><span>HYPER MARKET</span></div>
+                    </div>
+                    <p>Everything you need. One extraordinary destination. Premium quality, honest pricing, and a
+                        shopping experience designed around you.</p>
+                    <div class="socials">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="products.html">Products</a>
+                    <a href="categories.html">Categories</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Customer Service</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Track Order</a>
+                    <a href="#">Returns</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms &amp; Conditions</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p><i class="fa-solid fa-location-dot"></i> 24 Market Avenue, City Center</p>
+                    <p><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fa-solid fa-envelope"></i> hello@kefayat.com</p>
+                    <p><i class="fa-solid fa-clock"></i> Open Daily 8AM – 11PM</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Kefayat Hyper Market. All Rights Reserved.</p>
+                <p>Crafted with <i class="fa-solid fa-heart"></i> for a premium shopping experience.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ MODALS / DRAWERS ============ -->
+
+    <!-- Cart Drawer -->
+    <aside class="drawer cart-drawer" id="cartDrawer">
+        <div class="drawer-head">
+            <h3>Your Cart</h3>
+            <button class="close" data-close><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="drawer-body" id="cartItems"></div>
+        <div class="drawer-foot">
+            <div class="cart-total"><span>Total</span><strong id="cartTotal">$0.00</strong></div>
+            <button class="btn-primary w-full"><span>Checkout</span><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </aside>
+
+    <!-- Wishlist Drawer -->
+    <aside class="drawer wishlist-drawer" id="wishlistDrawer">
+        <div class="drawer-head">
+            <h3>Wishlist</h3>
+            <button class="close" data-close><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="drawer-body" id="wishlistItems"></div>
+    </aside>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="globalSearch" placeholder="Search products, categories...">
+            <button class="close" data-close><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="search-results" id="searchResults"></div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div class="modal-wrap" id="authModal">
+        <div class="modal-card auth-card">
+            <button class="modal-close" data-close><i class="fa-solid fa-xmark"></i></button>
+            <div class="auth-tabs">
+                <button class="tab active" data-tab="login">Login</button>
+                <button class="tab" data-tab="signup">Sign Up</button>
+            </div>
+
+            <form class="auth-form active" id="loginForm" novalidate>
+                <h3>Welcome Back</h3>
+                <p>Sign in to continue your premium shopping experience.</p>
+                <div class="field">
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                    <span class="err"></span>
+                </div>
+                <div class="field">
+                    <label>Password</label>
+                    <input type="password" name="password" required minlength="6">
+                    <span class="err"></span>
+                </div>
+                <div class="auth-row">
+                    <label class="check"><input type="checkbox"> Remember me</label>
+                    <a href="#" class="forgot">Forgot password?</a>
+                </div>
+                <button class="btn-primary w-full"><span>Login</span><i class="fa-solid fa-arrow-right"></i></button>
+            </form>
+
+            <form class="auth-form" id="signupForm" novalidate>
+                <h3>Create Account</h3>
+                <p>Join 50,000+ members enjoying premium shopping.</p>
+                <div class="field">
+                    <label>Full Name</label>
+                    <input type="text" name="name" required minlength="2">
+                    <span class="err"></span>
+                </div>
+                <div class="field">
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                    <span class="err"></span>
+                </div>
+                <div class="field">
+                    <label>Password</label>
+                    <input type="password" name="password" required minlength="6">
+                    <span class="err"></span>
+                </div>
+                <div class="field">
+                    <label>Confirm Password</label>
+                    <input type="password" name="confirm" required minlength="6">
+                    <span class="err"></span>
+                </div>
+                <button class="btn-primary w-full"><span>Sign Up</span><i class="fa-solid fa-arrow-right"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="modal-wrap" id="quickView">
+        <div class="modal-card quick-card">
+            <button class="modal-close" data-close><i class="fa-solid fa-xmark"></i></button>
+            <div class="quick-inner" id="quickInner"></div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script src="./assets/java/loader.js"></script>
+    <script src="./assets/java/cursor.js"></script>
+    <script src="./assets/java/cart.js"></script>
+    <script src="./assets/java/auth.js"></script>
+    <script src="./assets/java/three-scene.js"></script>
+    <script src="./assets/java/main.js"></script>
+</body>
+
+</html>

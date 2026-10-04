@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Kefayat Hyper Market</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/loader.css">
+    <style>
+        .about-hero {
+            padding: 180px 0 80px;
+            background: linear-gradient(180deg, #fbfcfe, #eef1f6);
+            position: relative;
+            overflow: hidden;
+            text-align: center
+        }
+
+        .about-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(40px, 6vw, 84px);
+            line-height: 1.02;
+            letter-spacing: -2px;
+            font-weight: 700;
+            margin: 16px 0
+        }
+
+        .about-hero h1 em {
+            font-style: italic;
+            color: var(--accent-2)
+        }
+
+        .about-hero p {
+            color: var(--muted);
+            max-width: 640px;
+            margin: 0 auto;
+            font-size: 16.5px
+        }
+
+        .story {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 70px;
+            align-items: center
+        }
+
+        .story h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(30px, 4vw, 48px);
+            letter-spacing: -1px;
+            line-height: 1.15;
+            font-weight: 700;
+            margin: 14px 0 20px
+        }
+
+        .story h2 em {
+            font-style: italic;
+            color: var(--accent-2)
+        }
+
+        .story p {
+            color: var(--muted);
+            font-size: 15.5px;
+            line-height: 1.75;
+            margin-bottom: 16px
+        }
+
+        .story-visual {
+            position: relative;
+            aspect-ratio: 1/1.05;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg)
+        }
+
+        .story-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .story-visual .float-chip {
+            position: absolute;
+            bottom: 24px;
+            left: 24px
+        }
+
+        @media (max-width:800px) {
+            .story {
+                grid-template-columns: 1fr;
+                gap: 40px
+            }
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 22px
+        }
+
+        .value-card {
+            padding: 34px 28px;
+            border-radius: var(--radius-lg);
+            background: linear-gradient(180deg, #fff, #f7f8fb);
+            border: 1px solid var(--line);
+            transition: all .45s var(--ease)
+        }
+
+        .value-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg)
+        }
+
+        .value-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #0b1220, #3b5a8f);
+            color: #fff;
+            display: grid;
+            place-items: center;
+            font-size: 22px;
+            margin-bottom: 20px
+        }
+
+        .value-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px
+        }
+
+        .value-card p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.65
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 40px 0
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1.5px;
+            background: linear-gradient(180deg, transparent, var(--line) 10%, var(--line) 90%, transparent);
+            transform: translateX(-50%)
+        }
+
+        .tl-item {
+            position: relative;
+            width: 50%;
+            padding: 0 50px 60px 0;
+            text-align: right
+        }
+
+        .tl-item:nth-child(even) {
+            margin-left: 50%;
+            padding: 0 0 60px 50px;
+            text-align: left
+        }
+
+        .tl-item .tl-dot {
+            position: absolute;
+            top: 12px;
+            right: -9px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #fff;
+            border: 3px solid var(--ink);
+            z-index: 2;
+            box-shadow: 0 0 0 6px rgba(11, 18, 32, .06)
+        }
+
+        .tl-item:nth-child(even) .tl-dot {
+            right: auto;
+            left: -9px
+        }
+
+        .tl-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: var(--ink);
+            line-height: 1;
+            margin-bottom: 8px
+        }
+
+        .tl-title {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 6px
+        }
+
+        .tl-desc {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.7
+        }
+
+        @media (max-width:700px) {
+            .timeline::before {
+                left: 12px
+            }
+
+            .tl-item,
+            .tl-item:nth-child(even) {
+                width: 100%;
+                padding: 0 0 40px 40px;
+                text-align: left;
+                margin-left: 0
+            }
+
+            .tl-item .tl-dot,
+            .tl-item:nth-child(even) .tl-dot {
+                left: 3px;
+                right: auto
+            }
+        }
+
+        /* Stats band */
+        .stats-band {
+            background: #0b1220;
+            color: #fff;
+            padding: 90px 0
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center
+        }
+
+        .stat-big {
+            position: relative
+        }
+
+        .stat-big h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(40px, 5vw, 64px);
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1;
+            background: linear-gradient(120deg, #fff, #8aa9d6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .stat-big p {
+            margin-top: 12px;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .6);
+            font-weight: 600
+        }
+
+        /* Team */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px
+        }
+
+        .team-card {
+            text-align: center;
+            padding: 26px;
+            border-radius: var(--radius-lg);
+            background: #fff;
+            border: 1px solid var(--line);
+            transition: all .4s var(--ease)
+        }
+
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg)
+        }
+
+        .team-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 18px;
+            border: 4px solid var(--off)
+        }
+
+        .team-card h4 {
+            font-size: 16px;
+            font-weight: 700
+        }
+
+        .team-card p {
+            font-size: 13px;
+            color: var(--muted-2);
+            margin-top: 4px
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="preloader" class="preloader">
+        <div class="loader-shapes"><span class="shape s1"></span><span class="shape s2"></span><span
+                class="shape s3"></span></div>
+        <div class="loader-content">
+            <div class="loader-logo"><span class="logo-mark">K</span>
+                <div class="logo-text">
+                    <h1>KEFAYAT</h1>
+                    <p>HYPER MARKET</p>
+                </div>
+            </div>
+            <div class="loader-bar"><span id="loaderProgress"></span></div>
+            <div class="loader-percent"><span id="loaderPercent">0</span>%</div>
+            <div class="loader-tag">Premium Shopping Experience</div>
+        </div>
+    </div>
+
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand">
+                <div class="brand-mark">K</div>
+                <div class="brand-name"><strong>KEFAYAT</strong><span>HYPER MARKET</span></div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="icon-btn" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="icon-btn" id="wishlistBtn"><i class="fa-regular fa-heart"></i><span class="badge"
+                        id="wishlistCount">0</span></button>
+                <button class="icon-btn" id="cartBtn"><i class="fa-solid fa-bag-shopping"></i><span class="badge"
+                        id="cartCount">0</span></button>
+                <button class="btn-login" id="loginBtn"><i class="fa-regular fa-user"></i><span>Login</span></button>
+                <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="about-hero">
+        <div class="container">
+            <span class="eyebrow"><i class="fa-solid fa-book-open"></i> Our Story</span>
+            <h1>A <em>Decade</em> of<br>Redefining Shopping</h1>
+            <p>From a single neighbourhood store to the region's most loved premium hypermarket — this is the Kefayat
+                story.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="story">
+                <div class="reveal">
+                    <span class="eyebrow">Our Story</span>
+                    <h2>Built on a simple promise: <em>quality without compromise.</em></h2>
+                    <p>Kefayat Hyper Market began in 2016 with a single, radical idea — that a supermarket could feel as
+                        premium as a boutique, while remaining accessible to every family.</p>
+                    <p>What started as a 400 sq.ft. corner store has grown into a national brand serving over 50,000
+                        families weekly. Our obsession with sourcing only the finest products — from local farms to
+                        imported gourmet labels — remains unchanged.</p>
+                    <p>Today, we operate across multiple cities with a world-class digital platform designed to bring
+                        the same premium experience right to your doorstep.</p>
+                    <a href="products.html" class="btn-primary magnetic" style="margin-top:14px"><span>Explore Our
+                            Products</span><i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="story-visual reveal">
+                    <img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=900&q=80"
+                        alt="Kefayat Store">
+                    <div class="float-chip"><i class="fa-solid fa-award"></i> Est. 2016</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background:#f7f8fb">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Our Journey</span>
+                <h2>Milestones that <em>Shaped Us</em></h2>
+            </div>
+            <div class="timeline">
+                <div class="tl-item reveal">
+                    <div class="tl-dot"></div>
+                    <div class="tl-year">2016</div>
+                    <div class="tl-title">The First Store</div>
+                    <p class="tl-desc">Kefayat opens its first 400 sq.ft. store with 12 dedicated team members and one
+                        bold vision.</p>
+                </div>
+                <div class="tl-item reveal">
+                    <div class="tl-dot"></div>
+                    <div class="tl-year">2018</div>
+                    <div class="tl-title">10,000 Customers</div>
+                    <p class="tl-desc">Our community grows to 10,000 weekly shoppers as we expand to a 2,500 sq.ft.
+                        flagship location.</p>
+                </div>
+                <div class="tl-item reveal">
+                    <div class="tl-dot"></div>
+                    <div class="tl-year">2020</div>
+                    <div class="tl-title">Going Digital</div>
+                    <p class="tl-desc">Launch of our e-commerce platform, bringing the Kefayat experience online with
+                        same-day delivery.</p>
+                </div>
+                <div class="tl-item reveal">
+                    <div class="tl-dot"></div>
+                    <div class="tl-year">2022</div>
+                    <div class="tl-title">National Presence</div>
+                    <p class="tl-desc">Expansion into 5 major cities with 12 locations and over 200 team members.</p>
+                </div>
+                <div class="tl-item reveal">
+                    <div class="tl-dot"></div>
+                    <div class="tl-year">2024</div>
+                    <div class="tl-title">Premium Reimagined</div>
+                    <p class="tl-desc">Launch of our redesigned premium brand identity, curating 10,000+ products from
+                        around the world.</p>
+                </div>
+                <div class="tl-item reveal">
+                    <div class="tl-dot"></div>
+                    <div class="tl-year">2026</div>
+                    <div class="tl-title">50,000 Families</div>
+                    <p class="tl-desc">Today, Kefayat proudly serves 50,000+ happy customers with an unwavering
+                        commitment to quality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-band">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-big">
+                    <h3 data-count="10" data-suffix="K+">0</h3>
+                    <p>Premium Products</p>
+                </div>
+                <div class="stat-big">
+                    <h3 data-count="50" data-suffix="K+">0</h3>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="stat-big">
+                    <h3 data-count="12" data-suffix="">0</h3>
+                    <p>Locations</p>
+                </div>
+                <div class="stat-big">
+                    <h3 data-count="200" data-suffix="+">0</h3>
+                    <p>Team Members</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Our Values</span>
+                <h2>What We <em>Stand For</em></h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card reveal">
+                    <div class="value-icon"><i class="fa-solid fa-gem"></i></div>
+                    <h3>Uncompromising Quality</h3>
+                    <p>Every product is vetted through a 12-point quality assurance process before it reaches our
+                        shelves.</p>
+                </div>
+                <div class="value-card reveal">
+                    <div class="value-icon"><i class="fa-solid fa-leaf"></i></div>
+                    <h3>Sustainability</h3>
+                    <p>Responsible sourcing, eco-friendly packaging and partnerships with local farmers.</p>
+                </div>
+                <div class="value-card reveal">
+                    <div class="value-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                    <h3>Community</h3>
+                    <p>We reinvest in the neighbourhoods we serve, supporting local growers and food banks.</p>
+                </div>
+                <div class="value-card reveal">
+                    <div class="value-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>Innovation</h3>
+                    <p>From our digital platform to in-store tech, we're constantly reimagining the shopping experience.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background:#f7f8fb">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Our Team</span>
+                <h2>The People Behind <em>Kefayat</em></h2>
+            </div>
+            <div class="team-grid">
+                <div class="team-card reveal"><img
+                        src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&q=80" alt="CEO">
+                    <h4>Omar Kefayat</h4>
+                    <p>Founder & CEO</p>
+                </div>
+                <div class="team-card reveal"><img
+                        src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&q=80" alt="COO">
+                    <h4>Layla Ahmed</h4>
+                    <p>Chief Operations Officer</p>
+                </div>
+                <div class="team-card reveal"><img
+                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&q=80" alt="CFO">
+                    <h4>Daniel Chen</h4>
+                    <p>Chief Financial Officer</p>
+                </div>
+                <div class="team-card reveal"><img
+                        src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&q=80" alt="CMO">
+                    <h4>Maya Hassan</h4>
+                    <p>Chief Marketing Officer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Why Kefayat</span>
+                <h2>Why <em>Millions</em> Choose Us</h2>
+                <p>Four reasons our customers keep coming back — day after day, year after year.</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card reveal">
+                    <div class="why-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                    <h3>Same-Day Delivery</h3>
+                    <p>Order before 4pm and receive your basket the very same day, fresh and intact.</p>
+                </div>
+                <div class="why-card reveal">
+                    <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Quality Promise</h3>
+                    <p>Not satisfied? We refund or replace — no questions asked. That's our promise.</p>
+                </div>
+                <div class="why-card reveal">
+                    <div class="why-icon"><i class="fa-solid fa-tags"></i></div>
+                    <h3>Best Prices</h3>
+                    <p>Direct-from-source sourcing means savings we pass directly on to you.</p>
+                </div>
+                <div class="why-card reveal">
+                    <div class="why-icon"><i class="fa-solid fa-headset"></i></div>
+                    <h3>Always Here</h3>
+                    <p>24/7 customer support from real humans who actually care about your experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="brand">
+                        <div class="brand-mark">K</div>
+                        <div class="brand-name"><strong>KEFAYAT</strong><span>HYPER MARKET</span></div>
+                    </div>
+                    <p>Everything you need. One extraordinary destination.</p>
+                    <div class="socials"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i
+                                class="fa-brands fa-instagram"></i></a><a href="#"><i
+                                class="fa-brands fa-x-twitter"></i></a></div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4><a href="index.html">Home</a><a href="products.html">Products</a><a
+                        href="categories.html">Categories</a><a href="about.html">About</a><a
+                        href="contact.html">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4><a href="#">Help Center</a><a href="#">Track Order</a><a href="#">Returns</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fa-solid fa-envelope"></i> hello@kefayat.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Kefayat Hyper Market. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <aside class="drawer cart-drawer" id="cartDrawer">
+        <div class="drawer-head">
+            <h3>Your Cart</h3><button class="close" data-close><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="drawer-body" id="cartItems"></div>
+        <div class="drawer-foot">
+            <div class="cart-total"><span>Total</span><strong id="cartTotal">$0.00</strong></div><button
+                class="btn-primary w-full"><span>Checkout</span><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </aside>
+    <aside class="drawer wishlist-drawer" id="wishlistDrawer">
+        <div class="drawer-head">
+            <h3>Wishlist</h3><button class="close" data-close><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="drawer-body" id="wishlistItems"></div>
+    </aside>
+
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="globalSearch"
+                placeholder="Search..."><button class="close" data-close><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="search-results" id="searchResults"></div>
+    </div>
+
+    <div class="modal-wrap" id="authModal">
+        <div class="modal-card auth-card">
+            <button class="modal-close" data-close><i class="fa-solid fa-xmark"></i></button>
+            <div class="auth-tabs"><button class="tab active" data-tab="login">Login</button><button class="tab"
+                    data-tab="signup">Sign Up</button></div>
+            <form class="auth-form active" id="loginForm" novalidate>
+                <h3>Welcome Back</h3>
+                <p>Sign in to continue.</p>
+                <div class="field"><label>Email</label><input type="email" name="email" required><span
+                        class="err"></span></div>
+                <div class="field"><label>Password</label><input type="password" name="password" required
+                        minlength="6"><span class="err"></span></div>
+                <button class="btn-primary w-full"><span>Login</span><i class="fa-solid fa-arrow-right"></i></button>
+            </form>
+            <form class="auth-form" id="signupForm" novalidate>
+                <h3>Create Account</h3>
+                <p>Join 50,000+ members.</p>
+                <div class="field"><label>Full Name</label><input type="text" name="name" required minlength="2"><span
+                        class="err"></span></div>
+                <div class="field"><label>Email</label><input type="email" name="email" required><span
+                        class="err"></span></div>
+                <div class="field"><label>Password</label><input type="password" name="password" required
+                        minlength="6"><span class="err"></span></div>
+                <div class="field"><label>Confirm Password</label><input type="password" name="confirm" required
+                        minlength="6"><span class="err"></span></div>
+                <button class="btn-primary w-full"><span>Sign Up</span><i class="fa-solid fa-arrow-right"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-wrap" id="quickView">
+        <div class="modal-card quick-card"><button class="modal-close" data-close><i
+                    class="fa-solid fa-xmark"></i></button>
+            <div class="quick-inner" id="quickInner"></div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="./assets/java/loader.js"></script>
+    <script src="./assets/java/cursor.js"></script>
+    <script src="./assets/java/cart.js"></script>
+    <script src="./assets/java/auth.js"></script>
+    <script src="./assets/java/product.js"></script>
+    <script src="./assets/java/main.js"></script>
+</body>
+
+</html>

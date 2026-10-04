@@ -1,0 +1,78 @@
+/* ============================================
+   PRELOADER
+   ============================================ */
+.preloader{
+  position:fixed; inset:0; z-index:99999;
+  background: radial-gradient(circle at 50% 40%, #f7f8fb 0%, #eef1f6 45%, #dfe4ec 100%);
+  display:flex; align-items:center; justify-content:center;
+  overflow:hidden;
+  transition: opacity .8s ease, visibility .8s ease;
+}
+.preloader.hide{opacity:0; visibility:hidden}
+
+.loader-shapes{position:absolute; inset:0; pointer-events:none}
+.loader-shapes .shape{
+  position:absolute; border-radius:50%;
+  filter: blur(60px);
+  opacity:.7;
+  animation: floatBlob 9s ease-in-out infinite;
+}
+.loader-shapes .s1{width:420px;height:420px;background:#cfe0ff; top:-80px; left:-60px}
+.loader-shapes .s2{width:360px;height:360px;background:#ffe1c9; bottom:-100px; right:-40px; animation-delay:-3s}
+.loader-shapes .s3{width:300px;height:300px;background:#e3d9ff; top:40%; left:60%; animation-delay:-6s}
+
+@keyframes floatBlob{
+  0%,100%{transform: translate(0,0) scale(1)}
+  50%{transform: translate(30px,-40px) scale(1.1)}
+}
+
+.loader-content{
+  position:relative; z-index:2;
+  text-align:center;
+  animation: fadeUp 1s ease both;
+}
+.loader-logo{display:flex; align-items:center; gap:20px; justify-content:center; margin-bottom:36px}
+.logo-mark{
+  width:76px;height:76px;border-radius:22px;
+  background: linear-gradient(135deg,#0b1220,#1a2a4a 60%,#2f4a7a);
+  color:#fff; font-weight:800; font-size:38px;
+  display:grid; place-items:center;
+  box-shadow: 0 20px 40px -20px rgba(11,18,32,.6), inset 0 0 0 1px rgba(255,255,255,.08);
+  animation: markPulse 2.4s ease-in-out infinite;
+}
+@keyframes markPulse{
+  0%,100%{transform: translateY(0) rotate(0)}
+  50%{transform: translateY(-6px) rotate(-3deg)}
+}
+.logo-text h1{
+  font-family:'Playfair Display', serif;
+  font-size:42px; letter-spacing:6px; color:#0b1220; margin:0; font-weight:900;
+}
+.logo-text p{
+  font-size:12px; letter-spacing:9px; color:#57627a; margin:4px 0 0; font-weight:600;
+}
+
+.loader-bar{
+  width:340px; max-width:80vw; height:4px; border-radius:99px;
+  background: rgba(11,18,32,.08); overflow:hidden; margin:0 auto;
+}
+.loader-bar span{
+  display:block; height:100%; width:0%;
+  background: linear-gradient(90deg,#0b1220,#3b5a8f,#8aa9d6);
+  border-radius:99px;
+  transition: width .25s ease;
+}
+.loader-percent{
+  margin-top:14px; font-size:13px; letter-spacing:4px; color:#57627a; font-weight:600;
+}
+.loader-percent span{color:#0b1220; font-weight:800}
+.loader-tag{
+  margin-top:22px; font-size:11px; letter-spacing:6px; color:#8a93a8; text-transform:uppercase;
+}
+@keyframes fadeUp{from{opacity:0; transform: translateY(20px)} to{opacity:1; transform:none}}
+
+/* hide page while preloading */
+body.preload{overflow:hidden}
+body.preload .navbar,
+body.preload .hero,
+body.preload .site-footer{opacity:0}
